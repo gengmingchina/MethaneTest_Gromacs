@@ -1,0 +1,15 @@
+[ moleculetype ]
+; name         nrexcl
+Methane            1
+
+[ atoms ]
+;   nr  type    resnr   residu  atom    cgnr    charge	mass
+1       CH4     1       GAS     C1      1       0.00    16.0430
+
+[ bonds ]
+;  ai  aj funct           c0           c1
+
+[ angles ]
+;  ai    aj    ak       funct   c0      c1
+
+[ exclusions ]

@@ -1,0 +1,7 @@
+[ atomtypes ]
+;name    at.num	   mass      charge    ptype  sigma        epsilon     
+C2                 12.01100  0.000     A      0.34000      0.223000     ; sigma     epsilon
+CH4                16.04300  0.000     A      0.37300      1.230096     ; sigma     epsilon
+
+[ nonbond_params ]
+;i	j	func	C	  A

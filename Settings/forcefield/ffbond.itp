@@ -1,0 +1,11 @@
+[ bondtypes ]
+;i	j	func	bo	kb
+C2	C2	1	0.13300	585760  ;GRA
+
+[ angletypes ]
+;i	j	k	func	th0	cth	ub0	cub
+C2	C2	C2	1	120.00	557.866				;100 Kcal/mol /sin(theta)^2
+
+[ dihedraltypes ]
+;i	j	k	l	func	phi0	cp	mult	
+C2	C2	C2	C2	9	180.00	188.28	2	

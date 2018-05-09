@@ -1,0 +1,303 @@
+;
+;	File 'mdout.mdp' was generated
+;	By user: spoel (291)
+;	On host: chagall
+;	At date: Mon Dec 15 13:13:06 1003
+;
+
+;; VARIOUS PREPROCESSING OPTIONS
+title                    = Yo
+cpp                      = /usr/bin/cpp
+include                  = 
+define                   = 
+
+
+;; RUN CONTROL PARAMETERS
+; leap-frog algorithm for integrating Newton's equations of motion
+integrator               = md ;;;;;
+; starting time (ps)
+tinit                    = 0
+; time steps (ps) 
+dt                       = 0.001     ;;;;;
+; maximum number of steps 
+nsteps                   = 100000000   ;;;;;
+; for exact run continuation or redoing part of a run
+init_step                = 0
+; mode for center of mass motion removal
+comm-mode                = Linear
+; frequency number of steps for center of mass motion removal
+nstcomm                  = 10
+; group(s) for center of mass motion removal
+comm-grps                = 
+
+
+;; ENERGY MINIMIZATION OPTIONS
+; force tolerance criteria
+emtol                    = 10
+; initial step-size
+emstep                   = 0.1
+; frequency of steepest descents steps when doing CG
+nstcgsteep               = 1000
+; number of correction steps to use for L-BFGS
+nbfgscorr                = 10
+
+
+;; SHELL MOLECULAR DYNAMICS
+; max number of iterations in relax_shells
+;niter                    = 20
+; step size (1/ps^2) for minimization of flexible constraints
+;fcstep                   = 0
+
+
+;; OUTPUT CONTROL OPTIONS
+; output frequency for coords, velocities, forces, log and energy
+nstxout                  = 0
+nstvout                  = 0
+nstfout                  = 0
+nstlog                   = 0
+nstenergy                = 0
+; frequency to calculting energies, equal to nstlist by default
+nstcalcenergy            = -1  
+; output frequency and precision for xtc file
+nstxtcout                = 1000   ;;;;;
+xtc_precision            = 10000   ;;;;;
+; selects the subset of atoms of multiple groups for the xtc file
+xtc_grps                 = 
+; groups to write to energy file
+energygrps               = 
+; checkpointing helps you continue after crashes
+nstcheckpoint            = 50000
+
+
+;; NEIGHBORSEARCHING PARAMETERS
+; nblist update frequency
+nstlist                  = 5
+; ns algorithm (simple or grid)
+ns_type                  = grid
+; periodic boundary conditions: xyz, no and xy
+pbc                      = xyz
+; nblist cut-off (nm)
+rlist                    = 1
+rlistlong                = 
+; molecules couple to themselves
+periodic-molecules       = yes
+
+
+;; DOMAIN DECOMPOSITION
+domain-decomposition     = no
+
+
+;; ELECTROSTATICS
+; method for doing electrostatics
+coulombtype              = cut-off
+; where to start swithing the Coulomb potential
+rcoulomb-switch          = 0.9
+; distance for the Coulomb cut-off
+rcoulomb                 = 1
+; dielectric constant (DC) for cut-off or DC of reaction field
+epsilon-r                = 1
+
+
+;; VDW
+; method for VdW
+vdw-type                 = Cut-off
+; where to start switching the LJ potential       
+rvdw-switch              = 0.9
+; distance for the LJ or Buchkingham cut-off
+rvdw                     = 1
+; Apply long range dispersion corrections for Energy and Pressure
+DispCorr                 = EnerPres
+
+
+;; TABLES
+; Extension of the non-bonded potential lookup tables beyond the largest cut-off
+table-extension          = 1
+
+
+;; EWALD
+; Spacing for the PME/PPPM FFT grid
+fourierspacing           = 0.12
+; FFT grid size, when a value is 0 fourierspacing will be used
+fourier_nx               = 0
+fourier_ny               = 0
+fourier_nz               = 0
+; EWALD/PME/PPPM parameters
+pme_order                = 4
+ewald_rtol               = 1e-05
+ewald_geometry           = 3dc
+epsilon_surface          = 0
+optimize_fft             = no 
+
+
+;; TEMPERATURE COUPLING
+; Temperature coupling methods 
+Tcoupl                   = nose-hoover
+; frequency for coupling temperature
+nsttcouple               = -1
+; Groups to couple separately
+tc-grps                  = System
+; Time constant (ps)
+tau_t                    = 2
+; reference temperature (k)
+ref_t                    = 400          ;;;;; very important ;;;;
+
+
+;; PRESSURE COUPLING     
+; pressure coupling methods
+pcoupl                   = no  
+; way of pressure coupling 
+pcoupltype               = isotropic
+; frequency for coupling pressure
+nstpcouple               = -1
+; Time constant (ps)
+tau_p                    = 2
+; compressibility in bar^(-1)
+compressibility          = 4.5e-5 
+; reference pressure
+ref_p                    = 1
+
+
+;; SIMULATED ANNEALING  
+; Type of annealing for each temperature group (no/single/periodic)
+annealing                = no
+; Number of time points to use for specifying annealing in each group
+annealing_npoints        = 
+; List of times at the annealing points for each group
+annealing_time           = 
+; Temp. at each annealing point, for each group.
+annealing_temp           = 
+
+
+;; VELOCITIES GENERATION
+; generation velocities
+gen_vel                  = yes ;;yes
+; temperature for Maxwell distribution (k)
+gen_temp                 = 400                                      ;;;;; idential to ref_t ;;;;;
+; used to initialize random generator for random velocities
+gen_seed                 = 491016
+
+
+;; OPTIONS FOR BONDS    
+; constraint
+constraints              = hbonds ;;;;;
+; Type of constraint algorithm
+constraint-algorithm     = lincs   ;;;;;
+; Highest order in the expansion of the constraint coupling matrix
+lincs-order              = 4
+; Number of iterations to correct for rotational lengthenting in LINCS
+lincs-iter               = 1
+; maximum angle that a bond can rotate before LINCS will complain
+lincs-warnangle          = 30  
+; Do not constrain the start configuration
+unconstrained-start      = no
+; Use successive overrelaxation to reduce the number of shake iterations
+; Shake-SOR              = no   ;;;;;
+; Relative tolerance of shake
+shake-tol                = 1e-04
+; Convert harmonic bonds to morse potentials
+morse                    = no
+
+
+;; ENERGY GROUP EXCLUSIONS
+; Pairs of energy groups for which all non-bonded interactions are excluded
+energygrp_excl           =
+
+
+;;WALLS 
+; number of wall
+nwall			= 0
+; wall type 
+wall_type		= 9-3
+; potential is continued linearly and force is constant below distamce from the wall 
+wall_r_linpot		= 0
+; atom type name in the force field for each wall
+wall_atomtype		= CN CN
+; number density of the atoms for each wall for wall type 9-3 and 10-4
+wall_density		= 30 30
+; scaling factor for the third box vector for Ewald summation only
+wall_ewald_zfac		= 3
+
+
+;; NMR REFINEMENT 
+; Distance restraints type: No, Simple or Ensemble
+disre                    = no
+; Force weighting of pairs in one distance restraint: Conservative or Equal
+disre-weighting          = conservative
+; Use sqrt of the time averaged times the instantaneous violation
+disre-mixed              = no
+; force constant for distance restraints
+disre-fc                 = 1000
+; time constants for distance restraints running average
+disre-tau                = 0
+; Output frequency for pair distances to energy file
+nstdisreout              = 100
+; Orientation restraints: No or Yes
+orire                    = no
+orire-fc                 = 0
+orire-tau                = 0
+orire-fitgrp             = 
+; Output frequency for trace(SD) to energy file
+nstorireout              = 100
+; Dihedral angle restraints: No, Simple or Ensemble
+dihre                    = No
+dihre-fc                 = 1000
+dihre-tau                = 0
+; Output frequency for dihedral values to energy file
+nstdihreout              = 100
+
+
+;; FREE ENERGY CALCULATIONS
+; interpolate or not
+free-energy              = no
+; starting value for lamda
+init-lambda              = 0
+; increment per time step for lamda
+delta-lambda             = 0
+; soft-core parameter
+sc-alpha                 = 0
+; soft-core sigma
+sc-sigma                 = 0.3
+
+
+;; NON-EQUILIBRIUM MD
+acc-grps                 = 
+accelerate               = 
+freezegrps               =  
+freezedim                = 
+cos-acceleration         = 0
+
+
+;; ELECTRIC FIELDS      
+; use an electric field
+E-x                      = 
+E-xt                     = 
+E-y                      = 
+E-yt                     = 
+E-z                      = 
+E-zt                     = 
+
+
+;; IMPLICIT SOLVENT (for use with Generalized Born electrostatics)
+; implicit solvent or not
+implicit_solvent         = No
+; algorithm for calculating Born radii
+gb_algorithm             = Still
+; frequency of calculating the Born radii inside rlist
+nstgbradii               = 1
+; cutoff for Born radii calculation
+rgbradii                 = 1
+; salt concentration in M for Generalized Born models
+gb_saltconc              = 0
+
+
+;; USER DEFINED THINGIES
+user1-grps               = 
+user2-grps               = 
+userint1                 = 0
+userint2                 = 0
+userint3                 = 0
+userint4                 = 0
+userreal1                = 0    ;;;wide of left pump
+userreal2                = 0    ;;;;;wide of right pump
+userreal3                = 0    ;;;;;force applied for pump
+userreal4                = 0

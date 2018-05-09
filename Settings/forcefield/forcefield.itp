@@ -1,0 +1,15 @@
+*******************************************************************************************************************
+* This file is writted by                                                                                         *
+* Zhengcai Zhang                                                                                                  *
+* Using the parmeters in the paper                                                                                *
+* 1: New Pore-scale Considerations for Shale Gas in Place Calculations (SPE  131772)                              * 
+* 2: Molecular insights into the surface morphology, layering structure, and aggregation kinetics of surfactant-  *
+*    stabilized graphene(JACS)                                                                                    *
+* 3: Computer simulation of ammonia on graphite. I. Low temperature structure of monolayer and bilayer films(JCP) *
+*******************************************************************************************************************
+[ defaults ]
+; Lorentz-Berthelot combining rules are used.
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+   1             2               yes              1.0     1.0
+#include "ffnonbonded.itp"
+#include "ffbond.itp"
